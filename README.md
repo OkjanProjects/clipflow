@@ -151,6 +151,9 @@ O parser trata o padrão do backend: **HTTP 200 com `ret != "0"` no corpo** tamb
 
 O app roda via Expo Go sem build. Para um `.apk` próprio existem dois caminhos.
 
+> **Sem computador?** Veja `docs/APK-NO-CELULAR.md` — GitHub Actions, EAS pelo celular e um
+> empacotador WebView que roda no Termux em ~2 minutos (`tools/webview-apk/`).
+
 ### 5.1 EAS Build (nuvem, não precisa de Android SDK)
 
 ```bash

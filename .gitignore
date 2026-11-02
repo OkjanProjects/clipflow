@@ -43,3 +43,7 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# gerados pelo empacotador WebView
+tools/webview-apk/build/
+tools/webview-apk/debug.keystore
