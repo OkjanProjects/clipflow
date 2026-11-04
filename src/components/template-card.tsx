@@ -33,6 +33,7 @@ export function TemplateCard({
             style={styles.rowCover}
             contentFit="cover"
             transition={180}
+            cachePolicy="memory-disk"
           />
           <View style={styles.durationBadge}>
             <Text style={styles.durationText}>{formatDuration(template.templateDuration)}</Text>
@@ -72,6 +73,8 @@ export function TemplateCard({
         style={styles.cover}
         contentFit="cover"
         transition={180}
+        cachePolicy="memory-disk"
+        placeholder={{ uri: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==' }}
       />
       <View style={styles.coverTop}>
         {template.isPro ? <Badge label="Pro" tone="pro" icon="sparkles" /> : <View />}

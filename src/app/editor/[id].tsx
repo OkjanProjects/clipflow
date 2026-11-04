@@ -78,6 +78,7 @@ export default function EditorScreen() {
     setTask(created);
 
     if (pollRef.current) clearInterval(pollRef.current);
+    let interval = 550;
     pollRef.current = setInterval(async () => {
       try {
         const next = await queryExportTask(created.taskId);
@@ -85,6 +86,12 @@ export default function EditorScreen() {
         if (next.state === 'success' || next.state === 'failed') {
           if (pollRef.current) clearInterval(pollRef.current);
           pollRef.current = null;
+        } else {
+          interval = Math.min(2000, interval + 150);
+          if (pollRef.current) {
+            clearInterval(pollRef.current);
+            pollRef.current = setInterval(async () => {}, interval);
+          }
         }
       } catch {
         if (pollRef.current) clearInterval(pollRef.current);
