@@ -46,7 +46,8 @@
     "start:lan": "expo start --lan",
     "start:tunnel": "expo start --tunnel",
     "typecheck": "tsc --noEmit",
-    "export:android": "expo export --platform android"
+    "export:android": "expo export --platform android",
+    "web:build": "npx expo export:web"
   },
   "private": true
 }
