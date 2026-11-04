@@ -1,15 +1,6 @@
 {
-  "buildCommand": "npx expo export --platform web",
+  "buildCommand": "./scripts/build-web.sh",
   "outputDirectory": "web-build",
   "installCommand": "npm install",
-  "framework": "other",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "web-build"
-      }
-    }
-  ]
+  "framework": "other"
 }
