@@ -47,7 +47,8 @@
     "start:tunnel": "expo start --tunnel",
     "typecheck": "tsc --noEmit",
     "export:android": "expo export --platform android",
-    "web:build": "npx expo export:web"
+    "web:build": "npx expo export:web",
+    "vercel-build": "npx expo export --platform web"
   },
   "private": true
 }
