@@ -18,14 +18,14 @@ type IconName = keyof typeof Ionicons.glyphMap;
 
 export function Screen({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
   return (
-    <SafeAreaView style={[styles.screen, style]} edges={['top', 'left', 'right']}>
+    <SafeAreaView style={[styles.button,[styles.screen, style]} edges={['top', 'left', 'right']}>
       {children}
     </SafeAreaView>
   );
 }
 
 export function TextTitle({ children, style }: { children: ReactNode; style?: StyleProp<TextStyle> }) {
-  return <Text style={[typography.title, styles.title, style]}>{children}</Text>;
+  return <Text style={[styles.button,[typography.title, styles.title, style]}>{children}</Text>;
 }
 
 type TextProps = {
@@ -36,7 +36,7 @@ type TextProps = {
 
 export function TextBody({ children, style, numberOfLines }: TextProps) {
   return (
-    <Text style={[typography.body, styles.body, style]} numberOfLines={numberOfLines}>
+    <Text style={[styles.button,[typography.body, styles.body, style]} numberOfLines={numberOfLines}>
       {children}
     </Text>
   );
@@ -44,7 +44,7 @@ export function TextBody({ children, style, numberOfLines }: TextProps) {
 
 export function TextMuted({ children, style, numberOfLines }: TextProps) {
   return (
-    <Text style={[typography.small, styles.muted, style]} numberOfLines={numberOfLines}>
+    <Text style={[styles.button,[typography.small, styles.muted, style]} numberOfLines={numberOfLines}>
       {children}
     </Text>
   );
@@ -78,7 +78,7 @@ export function Button({
       accessibilityRole="button"
       accessibilityState={{ disabled: disabled || loading, busy: loading }}
       onPress={disabled || loading ? undefined : onPress}
-      style={({ pressed }) => [
+      style={[styles.button,({ pressed }) => [
         styles.button,
         isPrimary && styles.buttonPrimary,
         variant === 'secondary' && styles.buttonSecondary,
@@ -92,7 +92,7 @@ export function Button({
       ) : (
         <>
           {icon ? <Ionicons name={icon} size={18} color={tint} /> : null}
-          <Text style={[styles.buttonLabel, { color: tint }]}>{label}</Text>
+          <Text style={[styles.button,[styles.buttonLabel, { color: tint }]}>{label}</Text>
         </>
       )}
     </Pressable>
@@ -115,11 +115,11 @@ export function Chip({
       accessibilityRole="button"
       accessibilityState={{ selected: active }}
       onPress={onPress}
-      style={({ pressed }) => [styles.chip, active && styles.chipActive, pressed && { opacity: 0.75 }]}>
+      style={[styles.button,({ pressed }) => [styles.chip, active && styles.chipActive, pressed && { opacity: 0.75 }]}>
       {icon ? (
         <Ionicons name={icon} size={14} color={active ? palette.accentInk : palette.textDim} />
       ) : null}
-      <Text style={[styles.chipLabel, active && styles.chipLabelActive]}>{label}</Text>
+      <Text style={[styles.button,[styles.chipLabel, active && styles.chipLabelActive]}>{label}</Text>
     </Pressable>
   );
 }
@@ -137,23 +137,23 @@ export function Badge({
     tone === 'accent' ? palette.accent : tone === 'pro' ? palette.pro : palette.text;
   return (
     <View
-      style={[
+      style={[styles.button,[
         styles.badge,
         tone === 'dark' && styles.badgeDark,
         tone === 'accent' && styles.badgeAccent,
         tone === 'pro' && styles.badgePro,
       ]}>
       {icon ? <Ionicons name={icon} size={11} color={color} /> : null}
-      <Text style={[styles.badgeLabel, { color }]}>{label}</Text>
+      <Text style={[styles.button,[styles.badgeLabel, { color }]}>{label}</Text>
     </View>
   );
 }
 
 export function Stat({ icon, value, label }: { icon: IconName; value: string; label?: string }) {
   return (
-    <View style={styles.stat} accessibilityLabel={label ? `${label}: ${value}` : value}>
+    <View style={[styles.button,styles.stat} accessibilityLabel={label ? `${label}: ${value}` : value}>
       <Ionicons name={icon} size={15} color={palette.textDim} />
-      <Text style={styles.statValue}>{value}</Text>
+      <Text style={[styles.button,styles.statValue}>{value}</Text>
     </View>
   );
 }
@@ -168,11 +168,11 @@ export function SectionHeader({
   onAction?: () => void;
 }) {
   return (
-    <View style={styles.sectionHeader}>
-      <Text style={styles.sectionTitle}>{title}</Text>
+    <View style={[styles.button,styles.sectionHeader}>
+      <Text style={[styles.button,styles.sectionTitle}>{title}</Text>
       {action ? (
         <Pressable onPress={onAction} hitSlop={8}>
-          <Text style={styles.sectionAction}>{action}</Text>
+          <Text style={[styles.button,styles.sectionAction}>{action}</Text>
         </Pressable>
       ) : null}
     </View>
@@ -180,7 +180,7 @@ export function SectionHeader({
 }
 
 export function Divider() {
-  return <View style={styles.divider} />;
+  return <View style={[styles.button,styles.divider} />;
 }
 
 export function EmptyState({
@@ -195,12 +195,12 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <View style={styles.empty}>
-      <View style={styles.emptyIcon}>
+    <View style={[styles.button,styles.empty}>
+      <View style={[styles.button,styles.emptyIcon}>
         <Ionicons name={icon} size={26} color={palette.textDim} />
       </View>
-      <Text style={[typography.subtitle, { color: palette.text }]}>{title}</Text>
-      <Text style={[typography.body, styles.emptyText]}>{description}</Text>
+      <Text style={[styles.button,[typography.subtitle, { color: palette.text }]}>{title}</Text>
+      <Text style={[styles.button,[typography.body, styles.emptyText]}>{description}</Text>
       {action}
     </View>
   );
