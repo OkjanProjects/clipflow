@@ -1,35 +1,43 @@
-/**
- * Design tokens do ClipFlow.
- *
- * As cores foram derivadas da análise do CapCut:
- *  - `accent` é o mesmo ciano do CTA "Use template" do site (#00cae0).
- *  - `bg`/`surface` seguem o tema escuro do PWA (theme_color #121217).
+/** 
+ * Design tokens profissionais do ClipFlow Editor
  */
 import '@/global.css';
-
 import { Platform } from 'react-native';
 
 export const palette = {
-  bg: '#0B0B0F',
-  surface: '#141419',
-  surfaceAlt: '#1C1C23',
-  border: '#26262F',
-  borderStrong: '#35353F',
-
-  text: '#FFFFFF',
-  textDim: '#9A9AA6',
+  bg: '#050508',
+  bgSoft: '#0A0A0F',
+  surface: '#0F0F16',
+  surfaceAlt: '#141420',
+  surfaceHover: '#1A1A24',
+  surfaceGlass: 'rgba(15, 15, 22, 0.8)',
+  border: '#1F1F2A',
+  borderStrong: '#2A2A38',
+  borderGlow: 'rgba(0, 202, 224, 0.2)',
+  text: '#F0F0F5',
+  textPrimary: '#FFFFFF',
+  textSecondary: '#A8A8C0',
   textMuted: '#6B6B78',
-
+  textDim: '#8A8A9A',
   accent: '#00CAE0',
+  accentLight: '#4DD0E1',
+  accentDark: '#0097A7',
   accentInk: '#00262B',
-  accentSoft: 'rgba(0, 202, 224, 0.14)',
-
+  accentSoft: 'rgba(0, 202, 224, 0.12)',
+  accentGlow: 'rgba(0, 202, 224, 0.3)',
+  success: '#2BD67B',
+  successSoft: 'rgba(43, 214, 123, 0.12)',
+  warning: '#FFB020',
+  warningSoft: 'rgba(255, 176, 32, 0.12)',
+  danger: '#FF4D4F',
+  dangerSoft: 'rgba(255, 77, 79, 0.12)',
   like: '#FF2D55',
   pro: '#FFC53D',
-  success: '#2BD67B',
-  danger: '#FF4D4F',
-
-  overlay: 'rgba(0, 0, 0, 0.55)',
+  proSoft: 'rgba(255, 197, 61, 0.12)',
+  overlay: 'rgba(0, 0, 0, 0.7)',
+  overlayLight: 'rgba(0, 0, 0, 0.4)',
+  gradientStart: '#00CAE0',
+  gradientEnd: '#7C4DFF',
 } as const;
 
 export const spacing = {
@@ -39,23 +47,54 @@ export const spacing = {
   lg: 16,
   xl: 24,
   xxl: 32,
+  xxxl: 48,
 } as const;
 
 export const radius = {
   sm: 8,
   md: 12,
-  lg: 18,
-  xl: 26,
+  lg: 16,
+  xl: 20,
+  xxl: 24,
   pill: 999,
 } as const;
 
 export const typography = {
-  hero: { fontSize: 30, fontWeight: '800' as const, letterSpacing: -0.8 },
-  title: { fontSize: 22, fontWeight: '700' as const, letterSpacing: -0.4 },
-  subtitle: { fontSize: 17, fontWeight: '600' as const },
+  display: { fontSize: 36, fontWeight: '800' as const, letterSpacing: -1.2 },
+  hero: { fontSize: 32, fontWeight: '800' as const, letterSpacing: -0.8 },
+  h1: { fontSize: 28, fontWeight: '700' as const, letterSpacing: -0.6 },
+  h2: { fontSize: 22, fontWeight: '700' as const, letterSpacing: -0.4 },
+  h3: { fontSize: 18, fontWeight: '600' as const, letterSpacing: -0.2 },
+  bodyLg: { fontSize: 16, fontWeight: '400' as const },
   body: { fontSize: 15, fontWeight: '400' as const },
-  small: { fontSize: 13, fontWeight: '500' as const },
-  micro: { fontSize: 11, fontWeight: '600' as const, letterSpacing: 0.2 },
+  bodySm: { fontSize: 13, fontWeight: '400' as const },
+  caption: { fontSize: 12, fontWeight: '500' as const },
+  small: { fontSize: 11, fontWeight: '500' as const },
+  micro: { fontSize: 10, fontWeight: '600' as const, letterSpacing: 0.2 },
+} as const;
+
+export const shadow = {
+  sm: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  md: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  lg: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 20,
+    elevation: 8,
+  },
 } as const;
 
 export const Fonts = Platform.select({

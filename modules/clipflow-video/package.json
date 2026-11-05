@@ -1,0 +1,7 @@
+{
+  "name": "clipflow-video",
+  "version": "0.1.0",
+  "description": "Exportação de vídeo do ClipFlow (Media3 Transformer)",
+  "main": "index.ts",
+  "private": true
+}
